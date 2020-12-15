@@ -40,19 +40,19 @@ std::string ReturnFileNameWithDate(int option)
 
 		localtime_s(&newtime, &now);
 
-		/*std::cout << "Year:" << 1900 + newtime.tm_year << std::endl;
+		std::cout << "Year:" << 1900 + newtime.tm_year << std::endl;
 		std::cout << "Month: " << 1 + newtime.tm_mon << std::endl;
 		std::cout << "Day: " << newtime.tm_mday << std::endl;
 		std::cout << "Time: " << 1 + newtime.tm_hour << ":";
 		std::cout << 1 + newtime.tm_min << ":";
 		std::cout << 1 + newtime.tm_sec << std::endl;
 
-		std::cout << "TV_" << 1900 + newtime.tm_year << 1 + newtime.tm_mon << ".txt" << std::endl;*/
+		std::cout << "TV_" << 1900 + newtime.tm_year << newtime.tm_mon << ".txt" << std::endl;
 
 		char mbstr[100];
 		
 		if (std::strftime(mbstr, sizeof(mbstr), "%y%m", &newtime)) {
-			//std::cout << mbstr << '\n';
+			std::cout <<" MBSTR: " <<mbstr << '\n';
 			newtimeminusonemonth = newtime;
 		}
 		switch (option)
@@ -139,7 +139,9 @@ int main(int argc, char* argv[])
 			std::cout << "CodePage: " << GetConsoleCP() << std::endl;
 			SetConsoleCP(1257);
 			std::cout << "CodePage: " << GetConsoleCP() << std::endl;
-
+			std::cout << "Enter date, format.: 202012";
+			int date=0;
+			std::cin >> date;
 
 
 			std::wstring test = L"irasyk \"CSV failo pavadinima kartu su pletiniu\"\nPvz.: failas.csv";
@@ -197,6 +199,10 @@ int main(int argc, char* argv[])
 
 
 		return 0;
+	}
+	if(argc == 2)
+	{
+
 	}
 	else
 	{

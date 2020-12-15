@@ -1,0 +1,30 @@
+﻿Build started 2020-12-15 19:09:51.
+Logging verbosity is set to: Normal.     1>Project "C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\ForIgnitis\ForIgnitis.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\ForIgnitis.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+       VcpkgTripletSelection:
+         Using triplet "x86-windows-static" from "G:\DEV\vcpkg\installed\x86-windows-static\"
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\CL.exe /c /I"G:\DEV\vcpkg\installed\x86-windows-static\include" /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc142.pdb" /Gd /TP /analyze- /FC /errorReport:prompt Main.cpp
+         Main.cpp
+     1>C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\ForIgnitis\Main.cpp(83): warning C4715: 'ReturnFileNameWithDate': not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\Debug\ForIgnitis.exe" /INCREMENTAL /NOLOGO /LIBPATH:"G:\DEV\vcpkg\installed\x86-windows-static\debug\lib" /LIBPATH:"G:\DEV\vcpkg\installed\x86-windows-static\debug\lib\manual-link" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib "G:\DEV\vcpkg\installed\x86-windows-static\debug\lib\*.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG:FASTLINK /PDB:"C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\Debug\ForIgnitis.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\Debug\ForIgnitis.lib" /MACHINE:X86 Debug\Main.obj
+         ForIgnitis.vcxproj -> C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\Debug\ForIgnitis.exe
+       AppLocalFromInstalled:
+         C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -noprofile -File "G:\DEV\vcpkg\scripts\buildsystems\msbuild\applocal.ps1" "C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\Debug\ForIgnitis.exe" "G:\DEV\vcpkg\installed\x86-windows-static\debug\bin" "Debug\ForIgnitis.tlog\ForIgnitis.write.1u.tlog" "Debug\vcpkg.applocal.log"
+       FinalizeBuildStatus:
+         Deleting file "Debug\ForIgnitis.tlog\unsuccessfulbuild".
+         Touching "Debug\ForIgnitis.tlog\ForIgnitis.lastbuildstate".
+     1>Done Building Project "C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\ForIgnitis\ForIgnitis.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+       "C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\ForIgnitis\ForIgnitis.vcxproj" (Build target) (1) ->
+       (ClCompile target) -> 
+         C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\ForIgnitis\Main.cpp(83): warning C4715: 'ReturnFileNameWithDate': not all control paths return a value
+
+    1 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.49
