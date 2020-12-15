@@ -1,4 +1,4 @@
-﻿Build started 2020-12-15 19:09:51.
+﻿Build started 2020-12-15 22:49:31.
 Logging verbosity is set to: Normal.     1>Project "C:\Users\NoNsleep\Documents\PROGRAMINIMAS\ForIgnitis\ForIgnitis\ForIgnitis.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\ForIgnitis.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -27,4 +27,4 @@ Build succeeded.
     1 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:02.49
+Time Elapsed 00:00:02.06

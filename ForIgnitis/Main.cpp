@@ -71,7 +71,14 @@ std::string ReturnFileNameWithDate(int option)
 			date = "CG_" + std::string(mbstr) + ".zip";
 
 			return date;
+		case 10:
+			std::cout << "Enter date, format.: 2012. Like 20 is a year and 12 is a month :\n";
+
+			std::string yearmont = 0;
+			std::cin >> yearmont;
+			date = "TV_" + yearmont + ".txt";
 		}
+
 		//std::cout << "TV_" << mbstr << ".txt" << std::endl;
 		
 
@@ -123,91 +130,238 @@ std::string trim(const std::string &line, const char &fromthistodelete)
 	}
 	return newline;
 }
-
+int mainlogic()
+{
+	return 0;
+}
 
 
 int main(int argc, char* argv[])
 {
 	//zip *zipas
+	std::cout << argc << std::endl;
+	std::cout << argv[0] << std::endl;
 	
-	if (argc == 1)
+
+	if (argc > 2)
 	{
-		try
-		{
-
-			std::cout << "Locale: " << std::locale("").name().c_str() << std::endl;
-			std::cout << "CodePage: " << GetConsoleCP() << std::endl;
-			SetConsoleCP(1257);
-			std::cout << "CodePage: " << GetConsoleCP() << std::endl;
-			std::cout << "Enter date, format.: 202012";
-			int date=0;
-			std::cin >> date;
-
-
-			std::wstring test = L"irasyk \"CSV failo pavadinima kartu su pletiniu\"\nPvz.: failas.csv";
-			std::wcout << test << L"\n";
-			std::string line = "";
-			std::string filename;
-			std::cin >> filename;
-			std::ifstream mycsv(filename);
-			std::ofstream remade(ReturnFileNameWithDate(1));
-			std::vector<std::string>parsedline;
-			std::string wstringas = "";
-			int nline = 0;
-			int countas = 0;
-			std::size_t found = 0;
-			if (mycsv.is_open())
-			{
-
-				while (std::getline(mycsv, line))
-				{
-					std::stringstream wstr(line);
-
-					while (std::getline(wstr, wstringas, '\t'))
-					{
-						parsedline.push_back(wstringas);
-					}
-					found = parsedline[15].find("LT-\r");
-					if (found != std::string::npos) {
-						std::cout << "first 'needle' found at: " << found << '\n';
-						countas++;
-						replace(parsedline[15], "LT-\r", "LT-");
-					}
-					parsedline[4] = trim(parsedline[4], '.');
-					parsedline[6] = trim(parsedline[6], '.');
-					parsedline[8] = trim(parsedline[8], '.');
-					parsedline[10] = trim(parsedline[10], '.');
-					std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
-					remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
-					//std::cout << line << std::endl;
-
-					parsedline.clear();
-				}
-				std::cout << "Found: " << countas << std::endl;
-				CreateZip();
-			}
-			else
-			{
-				std::cout << "Something wrong!" << std::endl;
-			}
-			std::cout << "CodePage: " << GetConsoleCP() << std::endl;
-		}
-		catch (const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-
-
+		std::cout << argv[1] << std::endl;
+		std::cout << "Too much arguments!";
 		return 0;
 	}
-	if(argc == 2)
-	{
 
-	}
-	else
+	switch (argc)
 	{
-		std::cout << "Too much arguments!";
+		default:   //anynumber params
+
+			try
+			{
+
+				std::cout << "Locale: " << std::locale("").name().c_str() << std::endl;
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+				SetConsoleCP(1257);
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+				std::cout << "Enter date, format.: 202012 :\n";
+
+				int date = 0;
+				std::cin >> date;
+
+
+				std::wstring test = L"irasyk \"CSV failo pavadinima kartu su pletiniu\"\nPvz.: failas.csv";
+				std::wcout << test << L"\n";
+				std::string line = "";
+				std::string filename;
+				std::cin >> filename;
+				std::ifstream mycsv(filename);
+				std::ofstream remade(ReturnFileNameWithDate(1));
+				std::vector<std::string>parsedline;
+				std::string wstringas = "";
+				int nline = 0;
+				int countas = 0;
+				std::size_t found = 0;
+				if (mycsv.is_open())
+				{
+
+					while (std::getline(mycsv, line))
+					{
+						std::stringstream wstr(line);
+
+						while (std::getline(wstr, wstringas, '\t'))
+						{
+							parsedline.push_back(wstringas);
+						}
+						found = parsedline[15].find("LT-\r");
+						if (found != std::string::npos) {
+							std::cout << "first 'needle' found at: " << found << '\n';
+							countas++;
+							replace(parsedline[15], "LT-\r", "LT-");
+						}
+						parsedline[4] = trim(parsedline[4], '.');
+						parsedline[6] = trim(parsedline[6], '.');
+						parsedline[8] = trim(parsedline[8], '.');
+						parsedline[10] = trim(parsedline[10], '.');
+						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
+						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
+						//std::cout << line << std::endl;
+
+						parsedline.clear();
+					}
+					std::cout << "Found: " << countas << std::endl;
+					CreateZip();
+				}
+				else
+				{
+					std::cout << "Something wrong!" << std::endl;
+				}
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+			}
+			catch (const std::exception& e)
+			{
+				std::cerr << e.what() << std::endl;
+			}
+
+
+			return 0;
+			break;
+
+	case 2:
+			try
+			{
+
+				std::cout << "Locale: " << std::locale("").name().c_str() << std::endl;
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+				SetConsoleCP(1257);
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+				
+
+
+				
+				
+				std::string line = "";
+				std::ifstream mycsv(argv[1]);
+				std::ofstream remade(ReturnFileNameWithDate(10));
+				std::vector<std::string>parsedline;
+				std::string wstringas = "";
+				int nline = 0;
+				int countas = 0;
+				std::size_t found = 0;
+				if (mycsv.is_open())
+				{
+
+					while (std::getline(mycsv, line))
+					{
+						std::stringstream wstr(line);
+
+						while (std::getline(wstr, wstringas, '\t'))
+						{
+							parsedline.push_back(wstringas);
+						}
+						found = parsedline[15].find("LT-\r");
+						if (found != std::string::npos) {
+							std::cout << "first 'needle' found at: " << found << '\n';
+							countas++;
+							replace(parsedline[15], "LT-\r", "LT-");
+						}
+						parsedline[4] = trim(parsedline[4], '.');
+						parsedline[6] = trim(parsedline[6], '.');
+						parsedline[8] = trim(parsedline[8], '.');
+						parsedline[10] = trim(parsedline[10], '.');
+						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
+						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
+						//std::cout << line << std::endl;
+
+						parsedline.clear();
+					}
+					std::cout << "Found: " << countas << std::endl;
+					CreateZip();
+				}
+				else
+				{
+					std::cout << "Something wrong!" << std::endl;
+				}
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+			}
+			catch (const std::exception& e)
+			{
+				std::cerr << e.what() << std::endl;
+			}
+
+
+			return 0;
+			break;
+
+	case 3:
+			try
+			{
+
+				std::cout << "Locale: " << std::locale("").name().c_str() << std::endl;
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+				SetConsoleCP(1257);
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+				std::ifstream date(argv[1]);
+
+
+				std::wstring test = L"irasyk \"CSV failo pavadinima kartu su pletiniu\"\nPvz.: failas.csv";
+				std::wcout << test << L"\n";
+				std::string line = "";
+				std::string filename;
+				std::cin >> filename;
+				std::ifstream mycsv(filename);
+				std::ofstream remade(ReturnFileNameWithDate(1));
+				std::vector<std::string>parsedline;
+				std::string wstringas = "";
+				int nline = 0;
+				int countas = 0;
+				std::size_t found = 0;
+				if (mycsv.is_open())
+				{
+
+					while (std::getline(mycsv, line))
+					{
+						std::stringstream wstr(line);
+
+						while (std::getline(wstr, wstringas, '\t'))
+						{
+							parsedline.push_back(wstringas);
+						}
+						found = parsedline[15].find("LT-\r");
+						if (found != std::string::npos) {
+							std::cout << "first 'needle' found at: " << found << '\n';
+							countas++;
+							replace(parsedline[15], "LT-\r", "LT-");
+						}
+						parsedline[4] = trim(parsedline[4], '.');
+						parsedline[6] = trim(parsedline[6], '.');
+						parsedline[8] = trim(parsedline[8], '.');
+						parsedline[10] = trim(parsedline[10], '.');
+						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
+						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
+						//std::cout << line << std::endl;
+
+						parsedline.clear();
+					}
+					std::cout << "Found: " << countas << std::endl;
+					CreateZip();
+				}
+				else
+				{
+					std::cout << "Something wrong!" << std::endl;
+				}
+				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
+			}
+			catch (const std::exception& e)
+			{
+				std::cerr << e.what() << std::endl;
+			}
+
+
+			return 0;
+			break;
+	}
 	}
 	
 	
-}
+	
+	
+	
+
