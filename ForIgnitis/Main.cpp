@@ -28,7 +28,7 @@ bool replace(std::string& str, const std::string& from, const std::string& to)
 	str.replace(start_pos, from.length(), to);
 	return true;
 }
-std::string ReturnFileNameWithDate(int option)
+std::string ReturnFileNameWithDate(int option, std::string &yearmonth)
 {
 	try
 	{
@@ -72,11 +72,13 @@ std::string ReturnFileNameWithDate(int option)
 
 			return date;
 		case 10:
-			std::cout << "Enter date, format.: 2012. Like 20 is a year and 12 is a month :\n";
-
-			std::string yearmont = 0;
-			std::cin >> yearmont;
-			date = "TV_" + yearmont + ".txt";
+			
+			date = "TV_" + yearmonth + ".txt";
+			return date;
+		case 11:
+			
+			date = "TV_" + yearmonth + ".zip";
+			return date;
 		}
 
 		//std::cout << "TV_" << mbstr << ".txt" << std::endl;
@@ -88,31 +90,62 @@ std::string ReturnFileNameWithDate(int option)
 		std::cerr << e.what() << "\n";
 	}
 }
-bool CreateZip()
+bool CreateZip(std::string &yearmonth, int option)
 {
-	try
+	switch (option)
 	{
-		std::string ZipName = ReturnFileNameWithDate(0);
+	default:
+		try
+		{
+			std::string ZipName = ReturnFileNameWithDate(0, yearmonth);
 
-		std::ofstream out(ZipName, std::ios::binary);
-		Poco::Zip::Compress c(out, true);
+			std::ofstream out(ZipName, std::ios::binary);
+			Poco::Zip::Compress c(out, true);
 
-		
-		Poco::File file(ReturnFileNameWithDate(1));
-		Poco::Path failas = file.path();
 
-		std::cout << "File path: " << file.path() << std::endl;
-		c.addFile(failas, failas.getFileName());
+			Poco::File file(ReturnFileNameWithDate(1, yearmonth));
+			Poco::Path failas = file.path();
 
-		c.close(); // MUST be done to finalize the Zip file
-		out.close();
-		return true;
+			std::cout << "File path: " << file.path() << std::endl;
+			c.addFile(failas, failas.getFileName());
+
+			c.close(); // MUST be done to finalize the Zip file
+			out.close();
+			return true;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+			return false;
+		}
+		break;
+	case 1:
+		try
+		{
+			std::string ZipName = ReturnFileNameWithDate(11, yearmonth);
+
+			std::ofstream out(ZipName, std::ios::binary);
+			Poco::Zip::Compress c(out, true);
+
+
+			Poco::File file(ReturnFileNameWithDate(10, yearmonth));
+			Poco::Path failas = file.path();
+
+			std::cout << "File path: " << file.path() << std::endl;
+			c.addFile(failas, failas.getFileName());
+
+			c.close(); // MUST be done to finalize the Zip file
+			out.close();
+			return true;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+			return false;
+		}
+		break;
 	}
-	catch(const std::exception & e)
-	{
-		std::cerr << e.what() << std::endl;
-		return false;
-	}
+	
 	
 }
 
@@ -143,7 +176,7 @@ int main(int argc, char* argv[])
 	std::cout << argv[0] << std::endl;
 	
 
-	if (argc > 2)
+	if (argc > 3)
 	{
 		std::cout << argv[1] << std::endl;
 		std::cout << "Too much arguments!";
@@ -161,19 +194,18 @@ int main(int argc, char* argv[])
 				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
 				SetConsoleCP(1257);
 				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
-				std::cout << "Enter date, format.: 202012 :\n";
-
-				int date = 0;
-				std::cin >> date;
-
-
+				
 				std::wstring test = L"irasyk \"CSV failo pavadinima kartu su pletiniu\"\nPvz.: failas.csv";
 				std::wcout << test << L"\n";
+				std::cout << "Enter date, format.: 2012. Like 20 is a year and 12 is a month :\n";
+
+				std::string yearmont = "";
+				std::cin >> yearmont;
 				std::string line = "";
 				std::string filename;
 				std::cin >> filename;
 				std::ifstream mycsv(filename);
-				std::ofstream remade(ReturnFileNameWithDate(1));
+				std::ofstream remade(ReturnFileNameWithDate(1,yearmont));
 				std::vector<std::string>parsedline;
 				std::string wstringas = "";
 				int nline = 0;
@@ -207,7 +239,7 @@ int main(int argc, char* argv[])
 						parsedline.clear();
 					}
 					std::cout << "Found: " << countas << std::endl;
-					CreateZip();
+					CreateZip(yearmont, 0);
 				}
 				else
 				{
@@ -233,13 +265,15 @@ int main(int argc, char* argv[])
 				SetConsoleCP(1257);
 				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
 				
+				std::cout << "Enter date, format.: 2012. Like 20 is a year and 12 is a month :\n";
 
-
+				std::string yearmont = "";
+				std::cin >> yearmont;
 				
 				
 				std::string line = "";
 				std::ifstream mycsv(argv[1]);
-				std::ofstream remade(ReturnFileNameWithDate(10));
+				std::ofstream remade(ReturnFileNameWithDate(10,yearmont)); //10 = txt is uzklausos data
 				std::vector<std::string>parsedline;
 				std::string wstringas = "";
 				int nline = 0;
@@ -273,7 +307,7 @@ int main(int argc, char* argv[])
 						parsedline.clear();
 					}
 					std::cout << "Found: " << countas << std::endl;
-					CreateZip();
+					CreateZip(yearmont, 1); // using 11 and 10 options from getname function
 				}
 				else
 				{
@@ -298,16 +332,14 @@ int main(int argc, char* argv[])
 				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
 				SetConsoleCP(1257);
 				std::cout << "CodePage: " << GetConsoleCP() << std::endl;
-				std::ifstream date(argv[1]);
+				
+				std::string yearmont = argv[2];
 
-
-				std::wstring test = L"irasyk \"CSV failo pavadinima kartu su pletiniu\"\nPvz.: failas.csv";
-				std::wcout << test << L"\n";
 				std::string line = "";
 				std::string filename;
-				std::cin >> filename;
-				std::ifstream mycsv(filename);
-				std::ofstream remade(ReturnFileNameWithDate(1));
+				
+				std::ifstream mycsv(argv[1]);
+				std::ofstream remade(ReturnFileNameWithDate(10,yearmont));
 				std::vector<std::string>parsedline;
 				std::string wstringas = "";
 				int nline = 0;
@@ -336,12 +368,10 @@ int main(int argc, char* argv[])
 						parsedline[10] = trim(parsedline[10], '.');
 						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
 						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
-						//std::cout << line << std::endl;
-
 						parsedline.clear();
 					}
 					std::cout << "Found: " << countas << std::endl;
-					CreateZip();
+					CreateZip(yearmont, 1);
 				}
 				else
 				{
