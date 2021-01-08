@@ -77,7 +77,7 @@ std::string ReturnFileNameWithDate(int option, std::string &yearmonth)
 			return date;
 		case 11:
 			
-			date = "TV_" + yearmonth + ".zip";
+			date = "CG_" + yearmonth + ".zip";
 			return date;
 		}
 
