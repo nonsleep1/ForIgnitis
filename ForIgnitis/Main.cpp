@@ -232,9 +232,14 @@ int main(int argc, char* argv[])
 						parsedline[6] = trim(parsedline[6], '.');
 						parsedline[8] = trim(parsedline[8], '.');
 						parsedline[10] = trim(parsedline[10], '.');
-						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
-						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
+						/*std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
+						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";*/
 						//std::cout << line << std::endl;
+						//senas
+
+						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << "\n";
+						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\n";
+						//naujas
 
 						parsedline.clear();
 					}
@@ -300,8 +305,15 @@ int main(int argc, char* argv[])
 						parsedline[6] = trim(parsedline[6], '.');
 						parsedline[8] = trim(parsedline[8], '.');
 						parsedline[10] = trim(parsedline[10], '.');
-						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
-						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
+						//std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
+						//remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
+						
+						//senas
+
+						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << "\n";
+						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\n";
+						//naujas
+
 						//std::cout << line << std::endl;
 
 						parsedline.clear();
@@ -366,8 +378,13 @@ int main(int argc, char* argv[])
 						parsedline[6] = trim(parsedline[6], '.');
 						parsedline[8] = trim(parsedline[8], '.');
 						parsedline[10] = trim(parsedline[10], '.');
-						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
-						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";
+						/*std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << " " << parsedline[15] << "\n";
+						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\t" << parsedline[15] << "\n";*/
+						//senas
+
+						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] <<  "\n";
+						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] <<  "\n";
+						//naujas
 						parsedline.clear();
 					}
 					std::cout << "Found: " << countas << std::endl;
