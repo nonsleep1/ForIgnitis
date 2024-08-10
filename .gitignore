@@ -4,3 +4,8 @@ Release
 ForIgnitis/*.zip
 ForIgnitis/*.txt
 ForIgnitis/*.user
+x64
+Debug|x64
+Release|x64
+Debug|Win32
+Release|Win32
