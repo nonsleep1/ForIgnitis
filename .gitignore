@@ -9,3 +9,9 @@ Debug|x64
 Release|x64
 Debug|Win32
 Release|Win32
+/ForIgnitis/x64/Debug/ForIgnitis.tlog/CL.command.1.tlog
+/ForIgnitis/x64/Debug/ForIgnitis.tlog/ForIgnitis.lastbuildstate
+*.list
+/vcpkg_installed/x64-windows-static/vcpkg/updates/0000000000
+/vcpkg_installed
+/ForIgnitis/x64/Debug/ForIgnitis.log
