@@ -310,8 +310,8 @@ int main(int argc, char* argv[])
 						
 						//senas
 
-						std::cout << parsedline[1] << " " << parsedline[2] << " " << parsedline[4] << " " << parsedline[6] << " " << parsedline[8] << " " << parsedline[10] << "\n";
-						remade << parsedline[1] << "\t" << parsedline[2] << "\t" << parsedline[4] << "\t" << parsedline[6] << "\t" << parsedline[8] << "\t" << parsedline[10] << "\n";
+						std::cout << parsedline[1] << ";" << parsedline[2] << ";" << parsedline[4] << ";" << parsedline[6] << ";" << parsedline[8] << ";" << parsedline[10] << "\n";
+						remade << parsedline[1] << ";" << parsedline[2] << ";" << parsedline[4] << ";" << parsedline[6] << ";" << parsedline[8] << ";" << parsedline[10] << "\n";
 						//naujas
 
 						//std::cout << line << std::endl;
